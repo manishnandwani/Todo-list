@@ -1,0 +1,29 @@
+<html ng-app="toDoapp">
+    <head>
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+        <style>
+            .done{
+            
+                text-decoration: line-through;
+            }
+        </style>
+       
+    </head>
+    <body>
+        <div ng-controller="firstCtrl as first">
+            <input type="text" ng-module="first.name">
+            <button ng-click="first.addTask()">Add</button>
+
+            <ol>
+                <li ng-class="{'done':task.status}" ng-repeat="task in first.tasks" 
+                ng-click="first.check(task.id)">
+                        {{task.name}}
+                        <button ng-click="first.delTask(task.id)">del</button>
+                </li>
+            </ol>
+
+        </div>
+
+    </body>
+</html>
